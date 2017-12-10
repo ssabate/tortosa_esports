@@ -1,2 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_esports_esports,esports.esports,model_esports_esports,,1,0,0,0
+access_esports_jugador,access_esports_jugador,model_esports_jugador,,1,1,1,1
+access_esports_persona,access_esports_persona,model_esports_persona,,1,1,1,1
+access_esports_posicio,access_esports_posicio,model_esports_posicio,,1,1,1,1
+access_esports_categoria,access_esports_categoria,model_esports_categoria,,1,1,1,1
+access_esports_entrenador,access_esports_entrenador,model_esports_entrenador,,1,1,1,1
