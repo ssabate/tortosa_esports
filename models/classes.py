@@ -12,7 +12,7 @@ class Persona(models.Model):
     email = fields.Char('email')
     adressa = fields.Char('Adreça')
     codiPostal = fields.Char('Codi postal', size=5)
-    poblacio = fields.Char('Poblacio')
+    poblacio = fields.Char('Població')
 
 class Jugador():
     _name = 'esports.jugador'
