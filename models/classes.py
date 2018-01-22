@@ -16,7 +16,7 @@ class Persona(models.Model):
 
 class Jugador():
     _name = 'esports.jugador'
-    #_inherit = 'esports.persona';
+    _inherit = 'esports.persona';
     sexe = fields.Selection([('Masculi', 'Masculí'), ('Femeni', 'Femení'), ('Indeterminat', 'Indeterminat')], 'Sexe', default='Indeterminat')
     dataNaix = fields.Date('Data naixement', required=True)
     categoria_id = fields.Many2one('esports.categoria', 'Categoria on juga')
@@ -24,7 +24,7 @@ class Jugador():
 
 class Entrenador():
     _name = 'esports.entrenador'
-    #_inherit = 'esports.persona';
+    _inherit = 'esports.persona';
     categories_id = fields.One2many(
         'esports.categoria',
         # related model
