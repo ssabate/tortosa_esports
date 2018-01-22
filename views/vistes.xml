@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <act_window id="action_tortosa_deports_persones"
+                    name="Persones"
+                    res_model="esports.persona"
+                    view_mode="tree,form"
+                    target="current"
+                    context="{'default_user_id': uid}"
+                    domain="[]"
+                    limit="80"/>
+        <act_window id="action_tortosa_deports_entrenadors"
+                    name="Entrenadors"
+                    res_model="esports.entrenador"
+                    view_mode="tree,form"
+                    target="current"
+                    context="{'default_user_id': uid}"
+                    domain="[]"
+                    limit="80"/>
+        <act_window id="action_tortosa_deports_jugadors"
+                    name="Jugadors"
+                    res_model="esports.jugador"
+                    view_mode="tree,form"
+                    target="current"
+                    context="{'default_user_id': uid}"
+                    domain="[]"
+                    limit="80"/>
+<!--        <act_window id="action_tortosa_deports_jugadors_entrenadors"
+                    name="Jugadors/entrenadors"
+                    res_model="esports.jugador.entrenador"
+                    view_mode="tree,form"
+                    target="current"
+                    context="{'default_user_id': uid}"
+                    domain="[]"
+                    limit="80"/> -->
+        <act_window id="action_tortosa_deports_categories"
+                    name="Categories"
+                    res_model="esports.categoria"
+                    view_mode="tree,form"
+                    target="current"
+                    context="{'default_user_id': uid}"
+                    domain="[]"
+                    limit="80"/>
+        <act_window id="action_tortosa_deports_posicions"
+                    name="Posicions"
+                    res_model="esports.posicio"
+                    view_mode="tree,form"
+                    target="current"
+                    context="{'default_user_id': uid}"
+                    domain="[]"
+                    limit="80"/>
+
+        <menuitem id="menu_tortosa_deports" sequence="20" name="Tortosa Deports"/>
+        <menuitem id="section_menu_todo_task_ui" parent="menu_tortosa_deports"/>
+        <menuitem action="action_tortosa_deports_persones"
+                  id="menu_tortosa_deports_0" parent="menu_tortosa_deports" sequence="25" name="Persones"/>
+        <menuitem action="action_tortosa_deports_entrenadors"
+                  id="menu_tortosa_deports_1" parent="menu_tortosa_deports" sequence="35" name="Entrenadors"/>
+        <menuitem action="action_tortosa_deports_jugadors"
+                  id="menu_tortosa_deports_3" parent="menu_tortosa_deports" sequence="45" name="Jugadors"/>
+<!--        <menuitem action="action_tortosa_deports_jugadors_entrenadors"
+                  id="menu_tortosa_deports_5" parent="menu_tortosa_deports" sequence="75" name="Jugadors/Entrenadors"/> -->
+        <menuitem action="action_tortosa_deports_categories"
+                  id="menu_tortosa_deports_2" parent="menu_tortosa_deports" sequence="55" name="Categories"/>
+        <menuitem action="action_tortosa_deports_posicions"
+                  id="menu_tortosa_deports_4" parent="menu_tortosa_deports" sequence="65" name="Posicions"/>
+
+        <record id="view_form_esports_entrenador" model="ir.ui.view">
+            <field name="name">Formulari entrenador</field>
+            <field name="model">esports.entrenador</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <!--<button name="do_toggle_done" type="object"
+                                string="Toggle Done" class="oe_highlight"/>
+                        <button name="do_clear_done" type="object"
+                                string="Clear All Done"/> -->
+                    </header>
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="dni"/>
+                                <field name="name"/>
+                                <field name="cognoms"/>
+                                <field name="categories_id"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="email"/>
+                                <field name="tlf1"/>
+                                <field name="tlf2"/>
+                                <field name="adressa"/>
+                                <field name="codiPostal"/>
+                                <field name="poblacio"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_form_esports_jugador" model="ir.ui.view">
+            <field name="name">Formulari jugador</field>
+            <field name="model">esports.jugador</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <!--<button name="do_toggle_done" type="object"
+                                string="Toggle Done" class="oe_highlight"/>
+                        <button name="do_clear_done" type="object"
+                                string="Clear All Done"/> -->
+                    </header>
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="dni"/>
+                                <field name="name"/>
+                                <field name="cognoms"/>
+                                <field name="sexe"/>
+                                <field name="dataNaix"/>
+                                <field name="categoria_id"/>
+                                <field name="posicions_id"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="email"/>
+                                <field name="tlf1"/>
+                                <field name="tlf2"/>
+                                <field name="adressa"/>
+                                <field name="codiPostal"/>
+                                <field name="poblacio"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_tree_esports_jugador" model="ir.ui.view">
+            <field name="name">Llista de jugadors</field>
+            <field name="model">esports.jugador</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="dni"/>
+                    <field name="name"/>
+                    <field name="cognoms"/>
+                </tree>
+            </field>
+        </record>
+
+<!--        <record id="view_form_esports_jugador_entrenador" model="ir.ui.view">
+            <field name="name">Formulari jugador/entrenador</field>
+            <field name="model">esports.jugador.entrenador</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+
+                    </header>
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="dni"/>
+                                <field name="name"/>
+                                <field name="cognoms"/>
+                                <field name="sexe"/>
+                                <field name="dataNaix"/>
+                                <field name="categoria_id"/>
+                                <field name="posicions_id"/>
+                                <field name="categories_id"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="email"/>
+                                <field name="tlf1"/>
+                                <field name="tlf2"/>
+                                <field name="adressa"/>
+                                <field name="codiPostal"/>
+                                <field name="poblacio"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record> -->
+
+    </data>
+</odoo>
