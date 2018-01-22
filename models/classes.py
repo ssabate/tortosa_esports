@@ -14,7 +14,7 @@ class Persona(models.Model):
     codiPostal = fields.Char('Codi postal', size=5)
     poblacio = fields.Char('Població')
 
-class Jugador():
+class Jugador(models.Model):
     _name = 'esports.jugador'
     _inherit = 'esports.persona';
     sexe = fields.Selection([('Masculi', 'Masculí'), ('Femeni', 'Femení'), ('Indeterminat', 'Indeterminat')], 'Sexe', default='Indeterminat')
@@ -22,7 +22,7 @@ class Jugador():
     categoria_id = fields.Many2one('esports.categoria', 'Categoria on juga')
     posicions_id = fields.Many2many('esports.posicio',string='Llista de posicions')
 
-class Entrenador():
+class Entrenador(models.Model):
     _name = 'esports.entrenador'
     _inherit = 'esports.persona';
     categories_id = fields.One2many(
